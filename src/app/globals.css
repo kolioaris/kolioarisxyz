@@ -124,13 +124,34 @@
   }
 }
 
-/* background */
 body {
-  cursor: url(https://r2.guns.lol/01054276-08e4-4ab6-889c-cf9ebbbab2f9.png) 16 16, auto !important;
-  background-image: url("/bg.jpg");        
+  background-image: url("/bg.jpg");
   background-position: center;
+  position: relative;
 }
 
-custom-cursor {
-  cursor: url(https://r2.guns.lol/01054276-08e4-4ab6-889c-cf9ebbbab2f9.png) 16 16, auto !important;
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Adjust 0.5 for darkness */
+  z-index: -1;
+}
+
+.custom-cursor {
+  cursor: url("/cursor.png") 16 16, auto;
+}
+
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+.animate-blink {
+  animation: blink 1s infinite;
 }
